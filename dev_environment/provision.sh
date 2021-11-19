@@ -28,13 +28,13 @@ systemctl enable grafana-server.service
 # TODO: Support building against the Linux source from the distro's source
 # package.
 git clone --branch v5.1 --depth 1 https://github.com/torvalds/linux.git /usr/src/linux
-LINUX_SRC_DIR=/usr/src/linux
-cd $LINUX_SRC_DIR
+export LINUX_SRC_PATH=/usr/src/linux
+cd $LINUX_SRC_PATH
 make defconfig
 
 mkdir -p /var/log/tb/l3af
 
-BUILD_DIR=$LINUX_SRC_DIR/samples/bpf/
+BUILD_DIR=$LINUX_SRC_PATH/samples/bpf/
 
 # Where to store the tar.gz build artifacts
 BUILD_ARTIFACT_DIR=/srv/l3afd
